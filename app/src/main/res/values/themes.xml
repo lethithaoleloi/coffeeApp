@@ -6,4 +6,8 @@
     </style>
 
     <style name="Theme.CoffeeApp" parent="Base.Theme.CoffeeApp" />
+    <style name="CircleImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="collapsedSize">15dp</item>
+    </style>
 </resources>
