@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lightCream"
-    tools:context=".MainActivity" >
+    tools:context=".Activity.MainActivity" >
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
@@ -58,7 +58,7 @@
 
                 <com.google.android.material.imageview.ShapeableImageView
                     android:id="@+id/banner"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="170dp"
                     android:scaleType="fitXY"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -112,6 +112,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:clipToPadding="false"
+                    android:minHeight="100dp"
                     android:paddingStart="8dp"
                     android:paddingEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -153,6 +154,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:clipToPadding="false"
+                    android:minHeight="150dp"
                     android:paddingStart="8dp"
                     android:paddingEnd="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
