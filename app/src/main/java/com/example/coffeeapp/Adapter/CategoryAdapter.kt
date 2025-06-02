@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.coffeeapp.Domain.CategoryModel
 import com.example.coffeeapp.R
 import com.example.coffeeapp.databinding.ViewholderCategoryBinding
-import com.google.firebase.database.core.Context
+import android.content.Context
 
 class CategoryAdapter(val items:MutableList<CategoryModel>)
     :RecyclerView.Adapter<CategoryAdapter.Viewholder>(){
@@ -27,20 +27,18 @@ class CategoryAdapter(val items:MutableList<CategoryModel>)
         val item=items[position]
         holder.binding.titleCart.text=item.title
 
-        holder.binding.root.setOnClickListener{
-            lastSelectedPosition=selectedPosition
-            selectedPosition=position
-            notifyItemChanged(lastSelectedPosition)
+        holder.binding.root.setOnClickListener {
+            val currentPosition = holder.adapterPosition
+            if (currentPosition == RecyclerView.NO_POSITION) return@setOnClickListener
+
+            lastSelectedPosition = selectedPosition
+            selectedPosition = currentPosition
+
+            // Only notify if positions are valid
+            if (lastSelectedPosition != -1) notifyItemChanged(lastSelectedPosition)
             notifyItemChanged(selectedPosition)
         }
-        if (selectedPosition==position){
-            holder.binding.titleCart.setBackgroundResource(R.drawable.dark_brown_bg)
-                holder.binding.titleCart.setTextColor(context.resources.getColor(R.color.white))
-        }else{
-            holder.binding.titleCart.setBackgroundResource(R.drawable.white_bg)
-            holder.binding.titleCart.setTextColor(context.resources.getColor(R.color.darkBrown))
         }
-    }
 
     override fun getItemCount(): Int =items.size
 }
