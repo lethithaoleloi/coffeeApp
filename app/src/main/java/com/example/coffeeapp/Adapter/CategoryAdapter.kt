@@ -26,17 +26,15 @@ class CategoryAdapter(val items:MutableList<CategoryModel>)
     override fun onBindViewHolder(holder: CategoryAdapter.Viewholder, position: Int) {
         val item=items[position]
         holder.binding.titleCart.text=item.title
-
-        holder.binding.root.setOnClickListener {
-            val currentPosition = holder.adapterPosition
-            if (currentPosition == RecyclerView.NO_POSITION) return@setOnClickListener
-
-            lastSelectedPosition = selectedPosition
-            selectedPosition = currentPosition
-
-            // Only notify if positions are valid
-            if (lastSelectedPosition != -1) notifyItemChanged(lastSelectedPosition)
+        holder.binding.root.setOnClickListener{
+            lastSelectedPosition=selectedPosition
+            selectedPosition=position
+            notifyItemChanged(lastSelectedPosition)
             notifyItemChanged(selectedPosition)
+        }
+        if (selectedPosition==position){
+            holder.binding.titleCart.setBackgroundResource(R.drawable.dark_brown_bg)
+            holder.binding.titleCart.setTextColor(context.resources.getColor(R.color.white))
         }
         }
 
