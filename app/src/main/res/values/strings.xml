@@ -7,4 +7,6 @@
     <string name="category">Category</string>
     <string name="popular_coffees">Popular Coffees</string>
     <string name="see_all">See all</string>
+    <string name="my_order">My Order</string>
+    <string name="profile">Profile</string>
 </resources>
