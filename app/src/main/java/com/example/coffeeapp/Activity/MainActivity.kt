@@ -5,9 +5,11 @@ import android.view.View
 import android.widget.LinearLayout
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.coffeeapp.Adapter.CategoryAdapter
+import com.example.coffeeapp.Adapter.PopularAdapter
 import com.example.coffeeapp.ViewModel.MainViewModel
 import com.example.coffeeapp.databinding.ActivityMainBinding
 
@@ -23,6 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         initBanner()
         initCategory()
+        initPolular()
     }
     private fun initBanner(){
         binding.progressBarBanner.visibility-= View.VISIBLE
@@ -46,6 +49,16 @@ class MainActivity : AppCompatActivity() {
             binding.progressBarCategory.visibility=View.GONE
         }
         viewModel.loadCategory()
+    }
+
+    private fun initPolular(){
+        binding.progressBarPopular.visibility=View.VISIBLE
+        viewModel.loadPopular().observeForever{
+            binding.recyclerViewPopular.layoutManager=GridLayoutManager(this,2)
+            binding.recyclerViewPopular.adapter=PopularAdapter(it)
+            binding.progressBarPopular.visibility=View.GONE
+        }
+        viewModel.loadPopular()
     }
 
 }

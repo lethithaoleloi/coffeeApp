@@ -36,6 +36,10 @@ class CategoryAdapter(val items:MutableList<CategoryModel>)
             holder.binding.titleCart.setBackgroundResource(R.drawable.dark_brown_bg)
             holder.binding.titleCart.setTextColor(context.resources.getColor(R.color.white))
         }
+        else{
+            holder.binding.titleCart.setBackgroundResource(R.drawable.white_bg)
+            holder.binding.titleCart.setTextColor((context.resources.getColor((R.color.darkBrown))))
+        }
         }
 
     override fun getItemCount(): Int =items.size
