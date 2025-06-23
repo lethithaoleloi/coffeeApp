@@ -29,7 +29,6 @@ class PopularAdapter(val items: MutableList<ItemsModel>):
             .into(holder.binding.pic)
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount(): Int = items.size
+
 }

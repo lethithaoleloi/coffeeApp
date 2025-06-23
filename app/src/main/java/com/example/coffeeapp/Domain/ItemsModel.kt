@@ -10,5 +10,5 @@ data class ItemsModel(
     var price: Double=0.0,
     var rating: Double=0.0,
     var numberInCart: Int =0,
-    var exxtra: String =""
+    var extra: String =""
 ): Serializable
