@@ -47,8 +47,8 @@
 
     <TextView
         android:id="@+id/priceTxt"
-        android:layout_width="7dp"
-        android:layout_height="17dp"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
         android:layout_marginTop="210dp"
         android:text="$-"
         android:textColor="@color/darkBrown"
